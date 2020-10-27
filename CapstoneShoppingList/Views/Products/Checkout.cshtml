@@ -1,0 +1,42 @@
+﻿@model CapstoneShoppingList.Models.CheckoutModel
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<h1>Checkout</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model.ShoppingList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+<div align="center">
+    <h5>Total: $@Model.Total.ToString("#.##")</h5>
+    <h5>Tax: $@Model.Tax.ToString("#.##")</h5>
+    <h5>Grand Total: $@Model.GrandTotal.ToString("#.##")</h5>
+</div>
+
